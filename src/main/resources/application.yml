@@ -1,0 +1,12 @@
+kind: Application
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/libraryDb
+    username: postgres
+    password: admin@123
+
+
