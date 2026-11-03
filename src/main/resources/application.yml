@@ -4,9 +4,15 @@ spring:
     hibernate:
       ddl-auto: update
       show-sql: true
+    defer-datasource-initialization: true
   datasource:
     url: jdbc:postgresql://localhost:5432/libraryDb
     username: postgres
     password: admin@123
+  sql:
+    init:
+      mode: always
+      platform: postgres
+      data-locations: classpath:student-data.sql
 
 

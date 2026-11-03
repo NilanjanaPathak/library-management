@@ -3,10 +3,13 @@ package com.nilanjana.library_management.controller;
 import com.nilanjana.library_management.dto.Books;
 import com.nilanjana.library_management.dto.StudentData;
 import com.nilanjana.library_management.dto.SuccessResponse;
+import com.nilanjana.library_management.entity.Student;
 import com.nilanjana.library_management.service.LibraryManagementService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1")
@@ -29,6 +32,12 @@ public class LibraryManagementController {
     @PostMapping("/student/{studentId}/issueBook")
     public ResponseEntity<SuccessResponse> issueBook(@RequestBody Books books, @PathVariable String studentId) {
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+
+    @GetMapping("/students")
+    public ResponseEntity<List<Student>> getAllStudents() {
+        return new ResponseEntity<>(libraryManagementService.getAllStudents(), HttpStatus.OK);
     }
 
 }

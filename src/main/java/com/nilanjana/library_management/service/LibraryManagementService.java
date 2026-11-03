@@ -8,6 +8,7 @@ import com.nilanjana.library_management.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class LibraryManagementService {
@@ -27,5 +28,9 @@ public class LibraryManagementService {
         Student student = studentMapper.toStudent(studentData);
         studentRepository.save(student);
         return new SuccessResponse("Success","Book Issued");
+    }
+    
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
     }
 }
